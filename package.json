@@ -1,0 +1,36 @@
+{
+  "name": "services",
+  "version": "1.0.0",
+  "description": "API for the employe management",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^2.6.0",
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "consign": "^0.1.6",
+    "cors": "^2.8.4",
+    "dateonly": "^1.1.1",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.1",
+    "module-alias": "^2.0.3",
+    "moment": "^2.22.1",
+    "mongoose": "^5.0.4",
+    "mongoose-dateonly": "^1.0.4",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@AppManager": "./services/AppManagerAPI",
+    "@AppManagerModels": "./services/AppManagerAPI/app/models",
+    "@AppManagerAPI": "./services/AppManagerAPI/config/app.js",
+    "@config": "./services/AppManagerAPI/config/index.js"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sairaj Anvekar",
+  "license": "ISC"
+}
