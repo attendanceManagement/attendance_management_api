@@ -13,8 +13,10 @@ module.exports = (app) => {
      .put(passport.authenticate('jwt', config.session), api.checkout(models.User,models.Attendance, app.get('tokensecret')));
   app.route('/api/v1/attendance/employe')
      .get(passport.authenticate('jwt', config.session), api.getByEmp(models.User,models.Attendance, app.get('tokensecret')));
-app.route('/api/v1/attendance/employe/all')
-     .get(passport.authenticate('jwt', config.session), api.getAllEmp(models.User,models.Attendance, app.get('tokensecret')));
+
+  app.route('/api/v1/attendance/employe/all')
+      .get(passport.authenticate('jwt', config.session), api.getAllEmp(models.User,models.Attendance, app.get('tokensecret')));
+
   app.route('/api/v1/attendance/check')
    .get(passport.authenticate('jwt', config.session), api.checkAttendance(models.Attendance, app.get('tokensecret')))
 }

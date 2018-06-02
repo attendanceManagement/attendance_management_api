@@ -3,6 +3,7 @@ const moment = require('moment');
 const api = {};
 var DateOnly = require('dateonly');
 
+
 api.getAll = (User, Attendance, Token) => (req, res) => {
   if (Token) {
     Attendance.find({}, (error, Attendance) => {
@@ -32,7 +33,7 @@ api.getByEmp = (User, Attendance, Token) => (req, res) => {
         $lte: end
       }
     }
-    console.log(query);
+
     Attendance.find({
       emp_id: req.query.emp_id,
       date: query
@@ -125,6 +126,7 @@ api.checkAttendance = (Attendance, Token) => (req, res) => {
 api.store = (Regularize, Attendance, Token) => (req, res) => {
   if (Token) {
     const date = req.body.date ? req.body.date : Date.now();
+
     let regId = req.body.regularize_id;
     Attendance.find({
       date: date,
@@ -138,7 +140,7 @@ api.store = (Regularize, Attendance, Token) => (req, res) => {
           date: req.body.date,
           in_time: req.body.in_time,
           out_time: req.body.out_time,
-          total_hour: total_hour
+          total_hour : total_hour
         });
 
         attendance.save((error, attendance) => {
@@ -156,6 +158,7 @@ api.store = (Regularize, Attendance, Token) => (req, res) => {
                 regularize: regularize
               });
             });
+
           } else {
             if (error) return res.status(400).json(error);
             res.status(200).json({
